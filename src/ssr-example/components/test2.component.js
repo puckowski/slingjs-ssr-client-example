@@ -1,4 +1,4 @@
-import { textNode, markup } from '../../../dist/sling.min';
+import { textNode, markup } from '../../../node_modules/slingjs/sling.min';
 
 class Test2Component {
     constructor() {

@@ -1,22 +1,24 @@
 import { textNode, markup } from '../../../node_modules/slingjs/sling.min';
+import Test2Component from './test2.component';
 
-class Test1Component {
+class Test3Component {
     view() {
         return markup('div', {
             attrs: {
-                id: 'divrouteroutlet',
-                slssrclass: 'Test1Component'
+                id: 'divroot',
+                slssrclass: 'Test3Component'
             },
             children: [
                 markup('span', {
                     children: [
-                        textNode('Plain text')
+                        textNode('Root text')
                     ]
                 }),
-                textNode('DOMString')
+                new Test2Component(),
+                textNode('Text node')
             ]
         })
     }
 }
 
-export default Test1Component;
+export default Test3Component;
