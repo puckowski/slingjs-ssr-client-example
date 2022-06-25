@@ -6,7 +6,6 @@ class Test3Component {
         return markup('div', {
             attrs: {
                 id: 'divroot',
-                slssrclass: 'Test3Component'
             },
             children: [
                 markup('span', {
