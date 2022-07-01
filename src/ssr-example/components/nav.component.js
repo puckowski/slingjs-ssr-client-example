@@ -12,20 +12,28 @@ class NavComponent {
     navigateToIsland() {
         slGet(this.hydrateIslandRoute)
             .then(resp => {
-                this.ssrContent = resp.response;
-                detachDetector('divrouteroutlet');
-                detectChanges();
-                hydrate('divrouteroutlet');
+                import(/* webpackChunkName: "test3" */ './test3.component.js').then(module => {
+                    window.Test3Component = module.default;
+
+                    this.ssrContent = resp.response;
+                    detachDetector('divrouteroutlet');
+                    detectChanges();
+                    hydrate('divrouteroutlet');
+                });
             });
     }
 
     navigateToHydrate() {
         slGet(this.hydrateRoute)
             .then(resp => {
-                this.ssrContent = resp.response;
-                detachDetector('divrouteroutlet');
-                detectChanges();
-                hydrate('divrouteroutlet');
+                import(/* webpackChunkName: "test2" */ './test2.component.js').then(module => {
+                    window.Test2Component = module.default;
+
+                    this.ssrContent = resp.response;
+                    detachDetector('divrouteroutlet');
+                    detectChanges();
+                    hydrate('divrouteroutlet');
+                });
             });
     }
 
