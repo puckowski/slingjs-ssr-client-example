@@ -20,6 +20,13 @@ class NavComponent {
         setState(state);
     }
 
+    renderRouterOutlet(content) {
+        this.ssrContent = content;
+        detachDetector('divrouteroutlet');
+        detectChanges();
+        hydrate('divrouteroutlet');
+    }
+
     navigateToIsland() {
         slGet(this.hydrateIslandRoute)
             .then(resp => {
@@ -37,23 +44,14 @@ class NavComponent {
                             import(/* webpackChunkName: "test2" */ './test2.component.js').then(module => {
                                 window.Test2Component = module.default;
 
-                                this.ssrContent = resp.response;
-                                detachDetector('divrouteroutlet');
-                                detectChanges();
-                                hydrate('divrouteroutlet');
+                                this.renderRouterOutlet(resp.response);
                             });
                         } else {
-                            this.ssrContent = resp.response;
-                            detachDetector('divrouteroutlet');
-                            detectChanges();
-                            hydrate('divrouteroutlet');
+                            this.renderRouterOutlet(resp.response);
                         }
                     });
                 } else {
-                    this.ssrContent = resp.response;
-                    detachDetector('divrouteroutlet');
-                    detectChanges();
-                    hydrate('divrouteroutlet');
+                    this.renderRouterOutlet(resp.response);
                 }
 
                 setState(state);
@@ -72,16 +70,10 @@ class NavComponent {
                     import(/* webpackChunkName: "test2" */ './test2.component.js').then(module => {
                         window.Test2Component = module.default;
 
-                        this.ssrContent = resp.response;
-                        detachDetector('divrouteroutlet');
-                        detectChanges();
-                        hydrate('divrouteroutlet');
+                        this.renderRouterOutlet(resp.response);
                     });
                 } else {
-                    this.ssrContent = resp.response;
-                    detachDetector('divrouteroutlet');
-                    detectChanges();
-                    hydrate('divrouteroutlet');
+                    this.renderRouterOutlet(resp.response);
                 }
 
                 setState(state);
