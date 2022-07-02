@@ -1,5 +1,4 @@
 import { textNode, markup } from '../../../node_modules/slingjs/sling.min';
-import Test2Component from './test2.component';
 
 class Test3Component {
     view() {
